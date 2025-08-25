@@ -1,0 +1,101 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;         
+  margin: 0;
+  padding: 20px;
+  overflow: hidden;      /* 🚫 No scroll */
+}
+
+h1 {
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 120px); /* Wider cards */
+  gap: 20px;                               /* More spacing */
+  justify-content: center;
+}
+
+.flip-card {
+  background: transparent;
+  width: 120px;  /* Increased width ✅ */
+  height: 120px; /* Proportional height */
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.flip-card.flipped .flip-card-inner,
+.flip-card.open .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  font-size: 1.8rem;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.flip-card-front {
+  background: #333;
+  color: #fff;
+}
+
+.flip-card-back {
+  background: #fff;
+  color: #333;
+  transform: rotateY(180deg);
+}
+
+/* Winner Section */
+#gameBtn {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#gameBtn h1 {
+  font-size: 2rem;
+  color: #ffeb3b;
+  margin-bottom: 15px;
+}
+
+.btn-reset {
+  background: #ff4081;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.btn-reset:hover {
+  background: #f50057;
+  transform: scale(1.05);
+}
